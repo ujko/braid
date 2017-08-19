@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#braid.xhtml" PATH="/braid.xhtml"
+  SHAPE="238,117,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#braid.xhtml:0" NAME="item"
+   PATH="/braid.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="index::#index.xhtml" NAME="output"
+    PATH="/index.xhtml" TARGET="rules:#index.xhtml" TITLE="index" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#index.xhtml" PATH="/index.xhtml"
+  SHAPE="240,240,50,25" model-entity="JSFProcessGroup" persistent="true">
+  <PROCESS-ITEM ID="rules:#index.xhtml:0" NAME="item"
+   PATH="/index.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="braid::#braid.xhtml" NAME="output"
+    PATH="/braid.xhtml" TARGET="rules:#braid.xhtml" TITLE="braid" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+</PROCESS>

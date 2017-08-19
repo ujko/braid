@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+body {
+	background-color: HoneyDew;
+}
+
+.mpanel {
+	width: 100%
+}
+.charts {
+	height: 200px;
+}
+

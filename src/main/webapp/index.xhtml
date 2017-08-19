@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+	<ui:composition template="/resources/template/basicTemplate.xhtml">
+		<ui:define name="content">
+			<h:form>
+				<p:panel id="settingsPanel" header="Ustawienia Jolokia">
+					<p:growl id="msgs" life="2000" />
+					<h:panelGrid columns="2">
+						<p:outputLabel value="Host" for="host" />
+						<p:inputText value="#{JolokiaBean.jolokiaHost}"
+							id="host" required="true" requiredMessage="Uzupełnij pole Host">
+						</p:inputText>
+						<p:outputLabel value="Port" for="port" />
+						<p:inputText value="#{JolokiaBean.jolokiaPort}"
+							id="port" required="true" requiredMessage="Uzupełnij pole Port">
+						</p:inputText>
+						<h:outputLabel value="Katalog" for="path" />
+						<p:inputText value="#{JolokiaBean.jolokiaPath}"
+							id="path" required="true" requiredMessage="Uzupełnij pole Katalog">
+						</p:inputText>
+						<p:outputLabel value="Odświeżanie" />
+						<h:panelGroup>
+							<p:inputText id="time" value="#{JolokiaBean.refreshTime}" />
+							<p:slider for="time" minValue="1" />
+						</h:panelGroup>
+					</h:panelGrid>
+					<h:commandButton action="#{JolokiaBean.connect()}"
+						value="Połącz" icon="ui-icon-check" update="settingsPanel" />
+				</p:panel>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

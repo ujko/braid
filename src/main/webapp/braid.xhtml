@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:body>
+	<ui:composition template="/resources/template/basicTemplate.xhtml">
+		<ui:define name="content">
+			<h:form>
+				<p:messages id="msg" autoUpdate="true" closable="true"/>
+				<p:panelGrid columns="3" styleClass="mpanel">
+					<p:panel styleClass="chartspanel">
+						<p:poll interval="#{JolokiaBean.refreshTime}" listener="#{HeapMemoryChart.createLineModels()}"
+							update="line_chart" />
+						<p:chart id="line_chart" type="line"
+							model="#{HeapMemoryChart.mainChartModel}" styleClass="charts" />
+						<p:message for="line_chart"/>
+					</p:panel>
+					<p:panel styleClass="chartspanel">
+						<p:poll interval="#{JolokiaBean.refreshTime}" listener="#{PhysicalMemoryChart.createLineModels()}"
+							update="line_chart1" />
+						<p:chart id="line_chart1" type="line"
+							model="#{PhysicalMemoryChart.mainChartModel}" styleClass="charts" />
+							<p:message for="line_chart1"/>
+					</p:panel>
+					<p:panel styleClass="chartspanel">
+						<p:poll interval="#{JolokiaBean.refreshTime}" listener="#{SystemCPUChart.createLineModels()}"
+							update="line_chart2" />
+						<p:chart id="line_chart2" type="line"
+							model="#{SystemCPUChart.mainChartModel}" styleClass="charts" />
+							<p:message for="line_chart2"/>
+					</p:panel>
+				</p:panelGrid>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
